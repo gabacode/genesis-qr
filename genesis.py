@@ -30,10 +30,11 @@ def makeQR(text):
             img.save("./files/images/"+str(index)+".png")
     f.close()
 
-    print("FATTO")
+    print("Done.")
 
 
 def makeGIF(name):
+    print('Making a GIF out of images')
     frames = []
     imgs = sorted(glob.glob("./files/images/*.png"), key=get_key)
 
@@ -46,9 +47,18 @@ def makeGIF(name):
                    append_images=frames[1:],
                    save_all=True,
                    duration=50, loop=0)
+    print('Done.')
 
 
 text_file = './files/text/lorem.txt'
-file_size(text_file)
-makeQR(text_file)
-makeGIF('lorem')
+
+def main():
+    file_size(text_file)
+    try:
+        makeQR(text_file)
+    except Exception as e:
+        print(e)
+    makeGIF('lorem')
+
+
+main()
