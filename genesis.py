@@ -53,9 +53,7 @@ def makeGIF(name):
     print('Done.')
 
 
-text_file = './files/text/lorem.txt'
-
-def main():
+def main(text_file):
     file_size(text_file)
     try:
         makeQR(text_file)
@@ -64,4 +62,4 @@ def main():
     makeGIF(text_file.rsplit('/', 1)[-1].rstrip('.txt'))
 
 
-main()
+main('./files/text/dream.txt')
