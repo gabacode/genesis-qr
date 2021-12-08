@@ -42,6 +42,9 @@ def makeGIF(name):
         new_frame = Image.open(i)
         res_frame = new_frame.resize((512, 512))
         frames.append(res_frame)
+        os.remove(i)
+
+    print(str(len(frames))+' frames rendered.')
 
     frames[0].save('./files/'+name+'.gif', format='GIF',
                    append_images=frames[1:],
