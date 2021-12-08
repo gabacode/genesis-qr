@@ -58,7 +58,7 @@ def main():
         makeQR(text_file)
     except Exception as e:
         print(e)
-    makeGIF('lorem')
+    makeGIF(text_file.rsplit('/', 1)[-1].rstrip('.txt'))
 
 
 main()
