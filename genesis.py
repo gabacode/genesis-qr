@@ -8,7 +8,7 @@ def file_size(filePath):
     with open(filePath, 'r') as file:
         filename = file.read()
         len_chars = sum(len(word) for word in filename)
-        print('The file has '+str(len_chars)+' characters.')
+        print('This text has '+str(len_chars)+' characters.\n')
         return len_chars
 
 
@@ -34,7 +34,7 @@ def makeQR(text):
 
 
 def makeGIF(name):
-    print('Making a GIF out of images')
+    print('\nMaking a GIF out of images')
     frames = []
     imgs = sorted(glob.glob("./files/images/*.png"), key=get_key)
 
