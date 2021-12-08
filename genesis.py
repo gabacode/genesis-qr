@@ -8,6 +8,7 @@ def file_size(filePath):
     with open(filePath, 'r') as file:
         filename = file.read()
         len_chars = sum(len(word) for word in filename)
+        print('The file has '+str(len_chars)+' characters.')
         return len_chars
 
 
@@ -18,16 +19,14 @@ def get_key(fp):
 
 
 def makeQR(text):
-    qr = qrcode.QRCode(
-        version=None, error_correction=qrcode.constants.ERROR_CORRECT_H, box_size=10, border=4)
+    qr = qrcode.QRCode(version=None, error_correction=qrcode.constants.ERROR_CORRECT_H, box_size=10, border=4)
 
     with open(text, 'r') as f:
         for index, char in enumerate(f.read()):
             print(char, end="")
             qr.add_data(char)
             qr.make(fit=True)
-            img = qr.make_image(fill_color="black",
-                                back_color="white").convert('RGB')
+            img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
             img.save("./files/images/"+str(index)+".png")
     f.close()
 
